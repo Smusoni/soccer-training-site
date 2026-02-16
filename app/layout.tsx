@@ -31,8 +31,17 @@ export default function RootLayout({
         <Header />
         {children}
         <footer className="bg-slate-950 border-t border-white/10 py-8">
-          <div className="max-w-6xl mx-auto px-4 text-center text-gray-400">
+          <div className="max-w-6xl mx-auto px-4 text-center text-gray-400 space-y-1">
             <p>&copy; 2025 Hamid Soccer Training. All rights reserved.</p>
+            <p>
+              Contact:{' '}
+              <a
+                href="mailto:hamidsoccertraining@gmail.com"
+                className="text-blue-300 hover:underline"
+              >
+                hamidsoccertraining@gmail.com
+              </a>
+            </p>
           </div>
         </footer>
       </body>

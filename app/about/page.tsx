@@ -4,8 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function AboutPage() {
-  const calendlyMain = "https://calendly.com/hamidsoccertraining";
-
   return (
     <main className="min-h-screen bg-slate-900 text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
@@ -15,21 +13,37 @@ export default function AboutPage() {
 
         <div className="grid gap-8 md:grid-cols-2 items-center mb-12">
           <div>
-            <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">About Hamid</h1>
+            <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">Meet Coach Hamid</h1>
             <p className="text-base sm:text-lg text-gray-200 leading-relaxed mb-4">
-              Hamid Shariff is a professional soccer coach with years of experience coaching elite players at all levels. His coaching philosophy centers on technical mastery, tactical intelligence, and building player confidence.
+              A former pro and college standout, Hamid has domestic and international experience to offer. His coaching methodology is proven to help players reach their potential and fall in love with the game.
             </p>
-            <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-6">
-              With credentials from Columbus Crew SC, Wittenberg University, and UEFA certification, Hamid brings a proven track record of player development and game performance improvement.
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4">
+              He has worked with many youth players that have gone on to play at top college programs, MLS teams, and National Teams at a World Cup.
             </p>
-            <a
-              href={calendlyMain}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700 transition"
-            >
-              Book a Session
-            </a>
+
+            <div className="mt-4 space-y-6">
+              <div>
+                <h2 className="text-xl font-semibold text-white mb-2">
+                  Over 10 Years of Coaching Experience
+                </h2>
+                <ul className="list-disc list-inside text-gray-300 space-y-1 text-sm sm:text-base">
+                  <li>Wittenberg University Men&apos;s Soccer</li>
+                  <li>Northwest FC Director of Coaching</li>
+                  <li>Columbus Crew Academy local scout</li>
+                  <li>SD Huesca Academy Coach (Spain)</li>
+                  <li>ODP Coach</li>
+                </ul>
+              </div>
+
+              <div>
+                <h2 className="text-xl font-semibold text-white mb-2">
+                  Education &amp; Licensing
+                </h2>
+                <p className="text-gray-300 text-sm sm:text-base">
+                  UEFA Coaching License (Spain)
+                </p>
+              </div>
+            </div>
           </div>
           <div className="rounded-2xl overflow-hidden h-80 flex items-center justify-center">
             <Image
@@ -43,7 +57,11 @@ export default function AboutPage() {
         </div>
 
         <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur p-8 md:p-12">
-          <h2 className="text-2xl font-bold text-white mb-6">Coaching Approach</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">Training Philosophy</h2>
+          <p className="text-base sm:text-lg text-gray-200 leading-relaxed mb-6">
+            Every session is designed specifically to meet the needs of the player. My focus is to
+            build a strong foundation of technical skill, decision-making, and tactical intelligence.
+          </p>
           <div className="grid gap-6 md:grid-cols-2">
             <div>
               <h3 className="text-lg font-semibold text-blue-400 mb-2">Technical Development</h3>

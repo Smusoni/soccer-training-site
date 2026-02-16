@@ -4,6 +4,33 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
+const InstagramIcon = ({ className }: { className?: string }) => (
+  <svg
+    aria-hidden="true"
+    viewBox="0 0 24 24"
+    className={className}
+  >
+    <rect
+      x="3"
+      y="3"
+      width="18"
+      height="18"
+      rx="5"
+      ry="5"
+      className="fill-none stroke-current"
+      strokeWidth="2"
+    />
+    <circle
+      cx="12"
+      cy="12"
+      r="4"
+      className="fill-none stroke-current"
+      strokeWidth="2"
+    />
+    <circle cx="17.5" cy="6.5" r="1" className="fill-current" />
+  </svg>
+);
+
 export default function Home() {
   const calendlyMain = "https://calendly.com/hamidsoccertraining";
   const instagram = "https://www.instagram.com/hamid_soccertraining?igsh=MTVzcnVuMHFkdnk1eg==";
@@ -53,7 +80,7 @@ export default function Home() {
 
             <p className="mt-4 sm:mt-5 text-base sm:text-lg text-white/90">
               High-intensity sessions built to elevate first touch, decision-making, confidence,
-              and real game performance — from U8 to Pro/College.
+              and real game performance — for all ages, college, and pro players.
             </p>
 
             <div className="mt-6 sm:mt-8 flex flex-col gap-3 sm:flex-row justify-center">
@@ -63,22 +90,13 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700 transition"
               >
-                Book a Session
-              </a>
-
-              <a
-                href={instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-3 border border-pink-400 text-pink-400 rounded-lg hover:bg-pink-900/20 transition font-semibold"
-              >
-                Follow on Instagram
+                Reserve a Spot
               </a>
             </div>
 
             <div className="mt-8 sm:mt-10 grid grid-cols-2 gap-2 sm:gap-4 sm:grid-cols-4 justify-center">
               {[
-                { label: "Levels", value: "U8–Pro" },
+                { label: "Levels", value: "All Ages, College, Pro" },
                 { label: "Session", value: "60 min" },
                 { label: "Focus", value: "Game-speed reps" },
                 { label: "Goal", value: "Confidence + results" },
@@ -98,12 +116,12 @@ export default function Home() {
         <div className="relative z-10 rounded-2xl sm:rounded-3xl border border-white/10 bg-white/10 backdrop-blur p-6 sm:p-8 md:p-12">
           <div className="grid gap-6 sm:gap-8 md:grid-cols-2 items-center">
             <div className="order-2 md:order-1">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Meet Your Coach</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Meet Coach Hamid</h2>
               <p className="text-base sm:text-lg text-gray-200 leading-relaxed mb-4">
-                Hamid Shariff is a former professional player with experience across Europe and the Middle East, now coaching elite players at all levels. With credentials from Columbus Crew SC, Wittenberg University, and UEFA certification, Hamid brings proven coaching expertise to every session.
+                A former pro and college standout, Hamid has domestic and international experience to offer. His coaching methodology is proven to help players reach their potential and fall in love with the game. He has worked with many youth players that have gone on to play at top college programs, MLS teams, and National Teams at a World Cup.
               </p>
               <p className="text-sm sm:text-base text-gray-300">
-                His approach combines technical mastery, tactical intelligence, and position-specific development—designed to build confidence and transfer directly to game performance.
+                His approach combines technical mastery, decision-making, and tactical intelligence—designed to build confidence and transfer directly to game performance.
               </p>
               <div className="mt-6">
                 <Link
@@ -259,6 +277,76 @@ export default function Home() {
         </div>
       </section>
 
+      {/* TESTIMONIALS / PROS TRAINED */}
+      <section
+        id="testimonials"
+        data-section
+        className={`w-full transition-opacity duration-700 ${getSectionClass("testimonials")} bg-slate-900`}
+      >
+        <div className="mx-auto max-w-6xl px-4 py-14">
+          <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur p-8 shadow-sm">
+            <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div>
+                <h2 className="text-2xl font-extrabold tracking-tight text-white">
+                  Pros & Players Trained
+                </h2>
+                <p className="mt-2 text-gray-300">
+                  Testimonials and stories from players Hamid has worked with — from youth to college and pro.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-3">
+              <div className="rounded-2xl border border-white/10 bg-slate-800/60 p-4">
+                <p className="text-sm text-gray-300">
+                  Add testimonials from professional players you&apos;ve trained here (for example, copied from CoachUp).
+                </p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-slate-800/60 p-4">
+                <p className="text-sm text-gray-300">
+                  Include quotes from college standouts or youth players who progressed to top programs.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-slate-800/60 p-4">
+                <p className="text-sm text-gray-300">
+                  We can replace this placeholder text with real names, teams, and testimonials once you provide them.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section
+        id="contact"
+        data-section
+        className={`w-full transition-opacity duration-700 ${getSectionClass("contact")} bg-slate-900`}
+      >
+        <div className="mx-auto max-w-6xl px-4 py-14">
+          <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur p-8 shadow-sm">
+            <h2 className="text-2xl font-extrabold tracking-tight text-white">
+              Contact
+            </h2>
+            <p className="mt-2 text-gray-300">
+              Have questions about training, groups, or availability? Reach out anytime.
+            </p>
+
+            <div className="mt-6 space-y-3 text-gray-200 text-sm sm:text-base">
+              <div>
+                <span className="font-semibold">Email: </span>
+                <a
+                  href="mailto:hamidsoccertraining@gmail.com"
+                  className="text-blue-300 hover:underline break-all"
+                >
+                  hamidsoccertraining@gmail.com
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* GALLERY TEASER */}
       <section data-section className={`w-full transition-opacity duration-700 ${getSectionClass('gallery')} bg-slate-900`}>
         <div className="mx-auto max-w-6xl px-4 py-16">
@@ -282,9 +370,10 @@ export default function Home() {
                   href={instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3 border border-pink-400 text-pink-400 rounded-lg hover:bg-pink-900/20 transition font-semibold"
+                  className="inline-flex items-center gap-2 px-6 py-3 border border-pink-400 text-pink-400 rounded-lg hover:bg-pink-900/20 transition font-semibold"
                 >
-                  Follow on Instagram
+                  <InstagramIcon className="h-4 w-4" />
+                  <span>Follow on Instagram</span>
                 </a>
               </div>
             </div>

@@ -13,6 +13,7 @@ const nav = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const instagram = "https://www.instagram.com/hamid_soccertraining?igsh=MTVzcnVuMHFkdnk1eg==";
 
   return (
     <header className="sticky top-0 z-50 border-b bg-white/80 backdrop-blur">
@@ -34,17 +35,53 @@ export default function Header() {
           </div>
         </Link>
 
-        {/* Hamburger menu */}
-        <button
-          className="inline-flex flex-col items-center justify-center rounded-lg border p-2 shrink-0"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
-          aria-expanded={open}
-        >
-          <span className="block h-0.5 w-5 bg-black mb-1" />
-          <span className="block h-0.5 w-5 bg-black mb-1" />
-          <span className="block h-0.5 w-5 bg-black" />
-        </button>
+        <div className="flex items-center gap-3">
+          {/* Instagram icon */}
+          <a
+            href={instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-full border border-pink-400 text-pink-500 p-2 hover:bg-pink-50 transition"
+            aria-label="Hamid Soccer Training on Instagram"
+          >
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              className="h-4 w-4"
+            >
+              <rect
+                x="3"
+                y="3"
+                width="18"
+                height="18"
+                rx="5"
+                ry="5"
+                className="fill-none stroke-current"
+                strokeWidth="2"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                r="4"
+                className="fill-none stroke-current"
+                strokeWidth="2"
+              />
+              <circle cx="17.5" cy="6.5" r="1" className="fill-current" />
+            </svg>
+          </a>
+
+          {/* Hamburger menu */}
+          <button
+            className="inline-flex flex-col items-center justify-center rounded-lg border p-2 shrink-0"
+            onClick={() => setOpen((v) => !v)}
+            aria-label="Toggle menu"
+            aria-expanded={open}
+          >
+            <span className="block h-0.5 w-5 bg-black mb-1" />
+            <span className="block h-0.5 w-5 bg-black mb-1" />
+            <span className="block h-0.5 w-5 bg-black" />
+          </button>
+        </div>
       </div>
 
       {/* Mobile dropdown */}

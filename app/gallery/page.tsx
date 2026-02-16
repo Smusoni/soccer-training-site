@@ -26,9 +26,34 @@ export default function GalleryPage() {
             href={instagramLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 sm:px-6 py-2 sm:py-3 border border-pink-400 text-pink-400 rounded-lg hover:bg-pink-900/20 transition font-semibold text-sm sm:text-base"
+            className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 border border-pink-400 text-pink-400 rounded-lg hover:bg-pink-900/20 transition font-semibold text-sm sm:text-base"
           >
-            Follow on Instagram
+            {/* Simple Instagram icon */}
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              className="h-4 w-4"
+            >
+              <rect
+                x="3"
+                y="3"
+                width="18"
+                height="18"
+                rx="5"
+                ry="5"
+                className="fill-none stroke-current"
+                strokeWidth="2"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                r="4"
+                className="fill-none stroke-current"
+                strokeWidth="2"
+              />
+              <circle cx="17.5" cy="6.5" r="1" className="fill-current" />
+            </svg>
+            <span>Follow on Instagram</span>
           </a>
         </div>
 
