@@ -13,12 +13,13 @@ const nav = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const instagram = "https://www.instagram.com/hamid_soccertraining?igsh=MTVzcnVuMHFkdnk1eg==";
+  const instagram =
+    "https://www.instagram.com/hamid_soccertraining?igsh=MTVzcnVuMHFkdnk1eg==";
 
   return (
     <header className="sticky top-0 z-50 border-b bg-white/80 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        {/* Left: Logo */}
+        {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
           <div className="relative h-10 w-10 overflow-hidden rounded-lg border bg-white">
             <Image
@@ -31,12 +32,24 @@ export default function Header() {
           </div>
           <div className="leading-tight">
             <div className="text-sm font-semibold">Hamid Soccer Training</div>
-            <div className="text-xs text-gray-600">Private • Group • Pro/College</div>
+            <div className="text-xs text-gray-600">
+              Private • Group • Pro/College
+            </div>
           </div>
         </Link>
 
-        <div className="flex items-center gap-3">
-          {/* Instagram icon */}
+        {/* Desktop nav */}
+        <nav className="hidden md:flex items-center gap-6">
+          {nav.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              className="text-sm font-semibold text-gray-700 hover:text-blue-600 transition"
+            >
+              {item.label}
+            </Link>
+          ))}
+
           <a
             href={instagram}
             target="_blank"
@@ -44,33 +57,30 @@ export default function Header() {
             className="inline-flex items-center justify-center rounded-full border border-pink-400 text-pink-500 p-2 hover:bg-pink-50 transition"
             aria-label="Hamid Soccer Training on Instagram"
           >
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 24 24"
-              className="h-4 w-4"
-            >
-              <rect
-                x="3"
-                y="3"
-                width="18"
-                height="18"
-                rx="5"
-                ry="5"
-                className="fill-none stroke-current"
-                strokeWidth="2"
-              />
-              <circle
-                cx="12"
-                cy="12"
-                r="4"
-                className="fill-none stroke-current"
-                strokeWidth="2"
-              />
+            <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4">
+              <rect x="3" y="3" width="18" height="18" rx="5" ry="5" className="fill-none stroke-current" strokeWidth="2" />
+              <circle cx="12" cy="12" r="4" className="fill-none stroke-current" strokeWidth="2" />
+              <circle cx="17.5" cy="6.5" r="1" className="fill-current" />
+            </svg>
+          </a>
+        </nav>
+
+        {/* Mobile: Instagram icon + hamburger */}
+        <div className="flex items-center gap-3 md:hidden">
+          <a
+            href={instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-full border border-pink-400 text-pink-500 p-2 hover:bg-pink-50 transition"
+            aria-label="Hamid Soccer Training on Instagram"
+          >
+            <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4">
+              <rect x="3" y="3" width="18" height="18" rx="5" ry="5" className="fill-none stroke-current" strokeWidth="2" />
+              <circle cx="12" cy="12" r="4" className="fill-none stroke-current" strokeWidth="2" />
               <circle cx="17.5" cy="6.5" r="1" className="fill-current" />
             </svg>
           </a>
 
-          {/* Hamburger menu */}
           <button
             className="inline-flex flex-col items-center justify-center rounded-lg border p-2 shrink-0"
             onClick={() => setOpen((v) => !v)}
@@ -86,7 +96,7 @@ export default function Header() {
 
       {/* Mobile dropdown */}
       {open && (
-        <div className="border-t bg-white px-4 py-3">
+        <div className="border-t bg-white px-4 py-3 md:hidden">
           <nav className="flex flex-col gap-2">
             {nav.map((item) => (
               <Link
