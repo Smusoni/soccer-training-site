@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 const nav = [
   { label: "Services", href: "/#services" },
@@ -11,31 +12,43 @@ const nav = [
   { label: "Contact", href: "/#contact" },
 ];
 
+const instagram =
+  "https://www.instagram.com/hamid_soccertraining?igsh=MTVzcnVuMHFkdnk1eg==";
+
+function InstagramIcon({ className }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className={className}>
+      <rect
+        x="3" y="3" width="18" height="18" rx="5" ry="5"
+        className="fill-none stroke-current" strokeWidth="2"
+      />
+      <circle cx="12" cy="12" r="4" className="fill-none stroke-current" strokeWidth="2" />
+      <circle cx="17.5" cy="6.5" r="1" className="fill-current" />
+    </svg>
+  );
+}
+
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const instagram =
-    "https://www.instagram.com/hamid_soccertraining?igsh=MTVzcnVuMHFkdnk1eg==";
+  const pathname = usePathname();
+
+  if (pathname === "/") {
+    return null;
+  }
 
   return (
-    <header className="sticky top-0 z-50 border-b bg-white/80 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-transparent bg-transparent">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 shrink-0">
-          <div className="relative h-10 w-10 overflow-hidden rounded-lg border bg-white">
+        <Link href="/" className="inline-flex items-center" aria-label="Hamid Soccer Training home">
+          <span className="relative h-8 w-8 overflow-hidden rounded-md">
             <Image
-              src="/hamidslogo.png"
+              src="/logo.svg"
               alt="Hamid Soccer Training logo"
               fill
               className="object-contain"
               priority
             />
-          </div>
-          <div className="leading-tight">
-            <div className="text-sm font-semibold">Hamid Soccer Training</div>
-            <div className="text-xs text-gray-600">
-              Private • Group • Pro/College
-            </div>
-          </div>
+          </span>
         </Link>
 
         {/* Desktop nav */}
@@ -44,24 +57,19 @@ export default function Header() {
             <Link
               key={item.label}
               href={item.href}
-              className="text-sm font-semibold text-gray-700 hover:text-blue-600 transition"
+              className="text-sm font-semibold text-blue-100 drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)] hover:text-blue-300 transition"
             >
               {item.label}
             </Link>
           ))}
-
           <a
             href={instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-full border border-pink-400 text-pink-500 p-2 hover:bg-pink-50 transition"
+            className="inline-flex items-center justify-center rounded-full border border-white/50 text-white p-2 hover:bg-white/20 transition"
             aria-label="Hamid Soccer Training on Instagram"
           >
-            <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4">
-              <rect x="3" y="3" width="18" height="18" rx="5" ry="5" className="fill-none stroke-current" strokeWidth="2" />
-              <circle cx="12" cy="12" r="4" className="fill-none stroke-current" strokeWidth="2" />
-              <circle cx="17.5" cy="6.5" r="1" className="fill-current" />
-            </svg>
+            <InstagramIcon className="h-4 w-4" />
           </a>
         </nav>
 
@@ -71,38 +79,32 @@ export default function Header() {
             href={instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-full border border-pink-400 text-pink-500 p-2 hover:bg-pink-50 transition"
+            className="inline-flex items-center justify-center rounded-full border border-white/50 text-white p-2 hover:bg-white/20 transition"
             aria-label="Hamid Soccer Training on Instagram"
           >
-            <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4">
-              <rect x="3" y="3" width="18" height="18" rx="5" ry="5" className="fill-none stroke-current" strokeWidth="2" />
-              <circle cx="12" cy="12" r="4" className="fill-none stroke-current" strokeWidth="2" />
-              <circle cx="17.5" cy="6.5" r="1" className="fill-current" />
-            </svg>
+            <InstagramIcon className="h-4 w-4" />
           </a>
-
           <button
-            className="inline-flex flex-col items-center justify-center rounded-lg border p-2 shrink-0"
+            className="inline-flex flex-col items-center justify-center rounded-lg border border-white/50 bg-black/20 p-2 shrink-0"
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
             aria-expanded={open}
           >
-            <span className="block h-0.5 w-5 bg-black mb-1" />
-            <span className="block h-0.5 w-5 bg-black mb-1" />
-            <span className="block h-0.5 w-5 bg-black" />
+            <span className="mb-1 block h-0.5 w-5 bg-white" />
+            <span className="mb-1 block h-0.5 w-5 bg-white" />
+            <span className="block h-0.5 w-5 bg-white" />
           </button>
         </div>
       </div>
 
-      {/* Mobile dropdown */}
       {open && (
-        <div className="border-t bg-white px-4 py-3 md:hidden">
+        <div className="border-t border-white/20 bg-slate-950/95 px-4 py-3">
           <nav className="flex flex-col gap-2">
             {nav.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="block rounded-lg px-4 py-2 font-semibold text-gray-900 hover:bg-gray-100"
+                className="block rounded-lg px-4 py-2 font-semibold text-white hover:bg-white/20"
                 onClick={() => setOpen(false)}
               >
                 {item.label}
