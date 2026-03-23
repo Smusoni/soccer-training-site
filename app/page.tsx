@@ -24,12 +24,12 @@ export default function Home() {
     "/gallery/technical-training-indoor.jpeg",
   ];
   const featuredPlayers = [
-    { name: "Lincoln Justice", club: "College" },
-    { name: "Zach Lloyd", club: "College" },
-    { name: "Chase Adams", club: "Pro/National Team" },
-    { name: "Tristan Brown", club: "Brown" },
-    { name: "Cole Mrowka", club: "Pro" },
-    { name: "Nuukele Gboe", club: "Pro" },
+    { name: "Adrian Gonzalez", image: "/featured/adrian_gonzalez.png" },
+    { name: "Zach Loyd", image: "/featured/zach_loyd.png" },
+    { name: "Taha Habroune", image: "/featured/taha_habroune.png", position: "center top" },
+    { name: "Chase Adams", image: "/featured/chase_adams.png" },
+    { name: "Campbell Owens", image: "/featured/campbell_owens.png" },
+    { name: "Cole Mowrka", image: "/featured/cole_mowrka.png" },
   ];
   const trainingPrograms = [
     {
@@ -38,7 +38,7 @@ export default function Home() {
       image: "/gallery/speed-agility-drill.jpeg",
     },
     {
-      title: "Online Player Consaltent",
+      title: "Online Player Consultant",
       desc: "Where we help players with the recruiting process.",
       image: "/gallery/training-session-outdoor-1.jpeg",
     },
@@ -261,9 +261,19 @@ export default function Home() {
           <p className="mt-2 text-gray-300">Players progressing through high-level training and competition.</p>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
             {featuredPlayers.map((player) => (
-              <div key={player.name} className="rounded-2xl border border-white/10 bg-slate-800/50 p-4">
-                <p className="font-semibold text-white">{player.name}</p>
-                <p className="text-sm text-gray-300">{player.club}</p>
+              <div
+                key={player.name}
+                className="group relative overflow-hidden rounded-2xl border border-white/15 min-h-72"
+                style={{
+                  backgroundImage: `url(${player.image})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: player.position ?? "center",
+                }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/15 group-hover:from-black/75 transition" />
+                <div className="relative p-5 h-full flex items-end">
+                  <p className="font-semibold text-white text-lg">{player.name}</p>
+                </div>
               </div>
             ))}
           </div>

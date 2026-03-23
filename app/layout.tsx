@@ -3,7 +3,7 @@ import { Montserrat, Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "./components/Header";
-import ChatButton from "./components/ChatButton";
+import ChatBot from "./components/ChatBot";
 
 const montserrat = Montserrat({
   variable: "--font-heading",
@@ -39,7 +39,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
-        <ChatButton />
+        <ChatBot />
         <footer className="bg-slate-950 border-t border-white/10 py-10">
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid gap-8 sm:grid-cols-3">
